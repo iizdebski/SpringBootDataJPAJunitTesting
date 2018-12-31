@@ -21,16 +21,16 @@ public class Ticket {
     @Column(name="passenger_name",nullable=false)
     private String passengerName;
 
-    @Column(name="booking_date")
+    @Column(name="booking_date",nullable=false)
     private Date bookingDate;
 
-    @Column(name="source_station")
+    @Column(name="source_station",nullable=false)
     private String sourceStation;
 
-    @Column(name="dest_station")
+    @Column(name="dest_station",nullable=false)
     private String destStation;
 
-    @Column(name="email")
+    @Column(name="email",unique=true)
     private String email;
 
 
@@ -46,7 +46,7 @@ public class Ticket {
     public void setPassengerName(String passengerName) {
         this.passengerName = passengerName;
     }
-    public Date getBookingDate() {
+    public Date getBookingDate(Date date) {
         return bookingDate;
     }
     public void setBookingDate(Date bookingDate) {

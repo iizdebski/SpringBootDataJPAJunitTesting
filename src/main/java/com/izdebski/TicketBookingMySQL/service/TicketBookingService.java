@@ -30,4 +30,8 @@ public class TicketBookingService {
         Ticket updatedTicket = ticketBookingDao.save(ticketFromDb);
         return updatedTicket;
     }
+
+    public Ticket getTicketByEmail(String email) {
+        return ticketBookingDao.findByEmail(email);
+    }
 }
