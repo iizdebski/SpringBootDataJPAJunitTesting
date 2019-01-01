@@ -3,13 +3,11 @@ package com.izdebski.TicketBookingMySQL.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import antlr.build.Tool;
 import com.izdebski.TicketBookingMySQL.entity.Ticket;
 import com.izdebski.TicketBookingMySQL.service.TicketBookingService;
 import org.junit.Test;
@@ -25,7 +23,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -92,6 +89,31 @@ public class TicketBookingControllerTest {
         String expectedJson = this.mapToJson(mockTicket);
         String outputInJson = result.getResponse().getContentAsString();
         assertThat(outputInJson).isEqualTo(expectedJson);
+    }
+
+    @Test
+    public void testGetTicketByEmail() throws Exception {
+        Ticket mockTicket = new Ticket();
+        mockTicket.setTicketId(1);
+        mockTicket.setPassengerName("Martin Bingel");
+        mockTicket.setSourceStation("Kolkata");
+        mockTicket.setDestStation("Delhi");
+        mockTicket.setBookingDate(new Date());
+        mockTicket.setEmail("martin.s2017@gmail.com");
+
+        String expectedJson = this.mapToJson(mockTicket);
+
+        Mockito.when(ticketBookingService.getTicketByEmail(Mockito.anyString())).thenReturn(mockTicket);
+
+        String URI = "/api/tickets/email/martin.s2017@gmail.com";
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                URI).accept(
+                MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        String outputInJson = result.getResponse().getContentAsString();
+        assertThat(outputInJson).isEqualTo(expectedJson);
+
     }
 
     @Test
