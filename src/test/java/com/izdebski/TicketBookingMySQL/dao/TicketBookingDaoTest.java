@@ -10,12 +10,14 @@ import com.izdebski.TicketBookingMySQL.entity.Ticket;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
 public class TicketBookingDaoTest {
 
     @Autowired
@@ -36,11 +38,11 @@ public class TicketBookingDaoTest {
     @Test
     public void testGetTicketById(){
         Ticket ticket = new Ticket();
-        ticket.setPassengerName("Martin Bingel");
-        ticket.setSourceStation("Kolkata");
-        ticket.setDestStation("Delhi");
+        ticket.setPassengerName("Raul Gonsalez");
+        ticket.setSourceStation("Kyiv");
+        ticket.setDestStation("Malorka");
         ticket.setBookingDate(new Date());
-        ticket.setEmail("martin.s2017@gmail.com");
+        ticket.setEmail("raul.s2017@yahoo.com");
         //Save ticket in DB
         Ticket ticketSavedInDb = entityManager.persist(ticket);
 
@@ -52,18 +54,18 @@ public class TicketBookingDaoTest {
     @Test
     public void testGetAllBookedTickets(){
         Ticket ticket1 = new Ticket();
-        ticket1.setPassengerName("Martin Bingel");
-        ticket1.setSourceStation("Kolkata");
-        ticket1.setDestStation("Delhi");
+        ticket1.setPassengerName("Raul Gonsalez");
+        ticket1.setSourceStation("Kyiv");
+        ticket1.setDestStation("Malorka");
         ticket1.setBookingDate(new Date());
-        ticket1.setEmail("martin.s2017@gmail.com");
+        ticket1.setEmail("raul.s2017@yahoo.com");
 
         Ticket ticket2 = new Ticket();
-        ticket2.setPassengerName("Sean Murphy");
-        ticket2.setSourceStation("Kolkata");
-        ticket2.setDestStation("Mumbai");
+        ticket2.setPassengerName("Martin Martinez");
+        ticket2.setSourceStation("Lviv");
+        ticket2.setDestStation("Ibiza");
         ticket2.setBookingDate(new Date());
-        ticket2.setEmail("sean.s2017@gmail.com");
+        ticket2.setEmail("martin.s2017@yahoo.com");
 
         //Save both tickets in DB
         entityManager.persist(ticket1);
@@ -98,18 +100,18 @@ public class TicketBookingDaoTest {
     @Test
     public void testDeleteTicketById(){
         Ticket ticket1 = new Ticket();
-        ticket1.setPassengerName("Martin Bingel");
-        ticket1.setSourceStation("Kolkata");
-        ticket1.setDestStation("Delhi");
+        ticket1.setPassengerName("Raul Gonsalez");
+        ticket1.setSourceStation("Kyiv");
+        ticket1.setDestStation("Malorka");
         ticket1.setBookingDate(new Date());
-        ticket1.setEmail("martin.s2017@gmail.com");
+        ticket1.setEmail("raul.s2017@yahoo.com");
 
         Ticket ticket2 = new Ticket();
-        ticket2.setPassengerName("Sean Murphy");
-        ticket2.setSourceStation("Kolkata");
-        ticket2.setDestStation("Mumbai");
+        ticket2.setPassengerName("Martin Martinez");
+        ticket2.setSourceStation("Lviv");
+        ticket2.setDestStation("Ibiza");
         ticket2.setBookingDate(new Date());
-        ticket2.setEmail("sean.s2017@gmail.com");
+        ticket2.setEmail("martin.s2017@yahoo.com");
         //Save both tickets in DB
         Ticket persist = entityManager.persist(ticket1);
         entityManager.persist(ticket2);

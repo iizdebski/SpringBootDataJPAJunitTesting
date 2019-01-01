@@ -15,7 +15,4 @@ CREATE TABLE ticket
   email VARCHAR (100) NOT NULL,
   CONSTRAINT ticket_id_UNIQUE
     UNIQUE (ticket_id)
-)
-  ENGINE = innoDB
-  DEFAULT CHARACTER SET = utf8
-;
+);
