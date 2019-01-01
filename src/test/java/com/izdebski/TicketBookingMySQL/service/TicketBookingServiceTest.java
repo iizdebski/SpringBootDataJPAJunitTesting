@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.izdebski.TicketBookingMySQL.dao.TicketBookingDao;
 import com.izdebski.TicketBookingMySQL.entity.Ticket;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -47,6 +48,7 @@ public class TicketBookingServiceTest {
 
 
     @Test
+    //@Ignore
     public void testGetTicketById(){
         Ticket ticket = new Ticket();
         ticket.setTicketId(1);
