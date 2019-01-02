@@ -1,26 +1,26 @@
 createTicket::::::
-http://localhost:8080/api/tickets/create
-{"passengerName":"Barry","bookingDate":1502649000000,"sourceStation":"Kokata","destStation":"Mumbai","email":"barry.s2017@infotech.com"}
+http://localhost:8081/api/tickets/create
+{"passengerName":"Barry","bookingDate":1502649000000,"sourceStation":"Kyiv","destStation":"Hawaii","email":"barry.s2017@infotech.com"}
 -------------------------------------------------------------------------------
 getTicketById:::
-http://localhost:8080/api/tickets/ticketId/{ticketId}
+http://localhost:8081/api/tickets/ticketId/{ticketId}
 
 -------------------------------------------------------------------------------
 getAllBookedTickets:::
-http://localhost:8080/api/tickets/alltickets
+http://localhost:8081/api/tickets/alltickets
 
 -------------------------------------------------------------------------------
 deleteTicket::::
-http://localhost:8080/api/tickets/ticketId/{ticketId}
+http://localhost:8081/api/tickets/ticketId/{ticketId}
 -------------------------------------------------------------------------------
 updateTicket:::
-http://localhost:8080/api/tickets/ticketId/{ticketId}/email/{newEmail:.+}
-http://localhost:8080/api/tickets/ticketId/2/email/barry.s2000@infotech.com
+http://localhost:8081/api/tickets/ticketId/{ticketId}/email/{newEmail:.+}
+http://localhost:8081/api/tickets/ticketId/2/email/barry.s2000@infotech.com
 
 -------------------------------------------------------------------------------
 getTicketByEmail:::
-http://localhost:8080/api/tickets/email/barry.s2000@infotech.com
-http://localhost:8080/api/tickets/email/sean.s2017@yahoo.com
+http://localhost:8081/api/tickets/email/barry.s2000@infotech.com
+http://localhost:8081/api/tickets/email/sean.s2017@yahoo.com
 
 spring.datasource.url=jdbc:mysql://localhost:3306/springbootdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 spring.datasource.username=root
