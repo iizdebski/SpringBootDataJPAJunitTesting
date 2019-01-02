@@ -60,11 +60,11 @@ public class TicketBookingControllerIntegrationTest {
 
         Ticket ticket = new Ticket();
         ticket.setTicketId(2);
-        ticket.setPassengerName("Sean Murphy");
-        ticket.setSourceStation("Kolkata");
-        ticket.setDestStation("Mumbai");
+        ticket.setPassengerName("Mike Manevski");
+        ticket.setSourceStation("Lviv");
+        ticket.setDestStation("Hawaii");
         ticket.setBookingDate(new Date());
-        ticket.setEmail("sean.s2017@gmail.com");
+        ticket.setEmail("Mike.m2020@google.com");
 
         String inputInJson = this.mapToJson(ticket);
 

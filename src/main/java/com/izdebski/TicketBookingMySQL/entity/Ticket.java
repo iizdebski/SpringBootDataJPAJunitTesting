@@ -1,6 +1,12 @@
 package com.izdebski.TicketBookingMySQL.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.util.Date;
 
 
@@ -41,7 +47,7 @@ public class Ticket {
     public void setPassengerName(String passengerName) {
         this.passengerName = passengerName;
     }
-    public Date getBookingDate(Date date) {
+    public Date getBookingDate() {
         return bookingDate;
     }
     public void setBookingDate(Date bookingDate) {
